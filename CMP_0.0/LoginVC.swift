@@ -12,6 +12,10 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController!.navigationBar.backgroundColor = UIColor.clearColor()
+      //  navigationController!.navigationBar.barTintColor = UIColor.clearColor()
+
 
         // Do any additional setup after loading the view.
     }

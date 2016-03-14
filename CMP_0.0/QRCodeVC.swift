@@ -10,8 +10,15 @@ import UIKit
 
 class QRCodeVC: UIViewController {
 
+    @IBOutlet weak var QRCodeImageView: UIImageView!
+    
+    var QRCodeImage = CIImage!()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        generateQRCode()
 
         // Do any additional setup after loading the view.
     }
@@ -31,5 +38,28 @@ class QRCodeVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    func generateQRCode(){
+        
+        print("gen QR Code ")
+    
+        if QRCodeImage == nil {
+            
+            
+            let data = "AKSHAY YADAV CODE TESTING 123".dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+            
+            let filter = CIFilter(name: "CIQRCodeGenerator")
+            
+            filter!.setValue(data, forKey: "inputMessage")
+            filter!.setValue("Q", forKey: "inputCorrectionLevel")
+            
+            QRCodeImage = filter!.outputImage
+            
+             QRCodeImageView.image = UIImage(CIImage: QRCodeImage)
+            
+        }
+    }
 
 }

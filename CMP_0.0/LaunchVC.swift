@@ -14,11 +14,27 @@ class LaunchVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let object = PFObject(className: "Dish")
+        object.setObject("how", forKey: "dishName")
+        object.saveInBackground()
+        
+       _ =  NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: Selector("gotoLogin"), userInfo: nil, repeats: false)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func gotoLogin(){
+    
+        performSegueWithIdentifier("launchToLogin", sender: self)
+    
     }
     
 

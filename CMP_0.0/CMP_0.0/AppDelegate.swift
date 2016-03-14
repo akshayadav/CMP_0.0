@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("odvi8WgMd4nB1EoCZJjNDo7itmlSHEFp0hAA4iWe", clientKey: "zjzrDgbzbpL0hdD00S0YN9BYZQi261P33s8hVmss")
         
-        let object = PFObject(className: "Dish")
-        object.setObject("hello", forKey: "dishName")
-        object.saveInBackground()
+        
         
         return true
     }
