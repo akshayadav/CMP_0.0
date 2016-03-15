@@ -1,23 +1,17 @@
 //
-//  LoginVC.swift
+//  RestaurantsVC.swift
 //  CMP_0.0
 //
-//  Created by Akshay's on 2/24/16.
+//  Created by Akshay's on 3/15/16.
 //  Copyright © 2016 Akshay's. All rights reserved.
 //
 
 import UIKit
 
-class LoginVC: UIViewController {
+class RestaurantsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController!.navigationBar.backgroundColor = UIColor.clearColor()
-        
-        
-      //  navigationController!.navigationBar.barTintColor = UIColor.clearColor()
-
 
         // Do any additional setup after loading the view.
     }
@@ -26,26 +20,6 @@ class LoginVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        navigationController?.navigationBarHidden = true
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-//    
-//    override func viewWillDisappear(animated: Bool) {
-//        navigationController?.navigationBarHidden = true
-//        super.viewWillDisappear(true)
-//        
-//        
-//    }
-   
-    
-    
-    
     
 
     /*
