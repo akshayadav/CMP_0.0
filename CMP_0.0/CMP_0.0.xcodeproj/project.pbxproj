@@ -41,6 +41,8 @@
 		3EFA7B111C943674008976F8 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFA7B0B1C943673008976F8 /* ParseUI.framework */; };
 		3EFA7B151C9436FE008976F8 /* ParseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFA7B141C9436FE008976F8 /* ParseConnection.m */; };
 		3EFEB6071C943B7000AB30A7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFEB6061C943B7000AB30A7 /* libsqlite3.tbd */; };
+		3EFEB60A1C98405500AB30A7 /* restaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB6091C98405500AB30A7 /* restaurantTableViewCell.swift */; };
+		3EFEB60C1C98465500AB30A7 /* restaurantTempImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEB60B1C98465500AB30A7 /* restaurantTempImage1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 		3EFA7B131C9436FD008976F8 /* CMP_0.0-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CMP_0.0-Bridging-Header.h"; sourceTree = "<group>"; };
 		3EFA7B141C9436FE008976F8 /* ParseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseConnection.m; sourceTree = "<group>"; };
 		3EFEB6061C943B7000AB30A7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3EFEB6091C98405500AB30A7 /* restaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = restaurantTableViewCell.swift; sourceTree = "<group>"; };
+		3EFEB60B1C98465500AB30A7 /* restaurantTempImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurantTempImage1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 		3E69B3D51C63F46200D3980C /* TempFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3EFEB60B1C98465500AB30A7 /* restaurantTempImage1.png */,
 				3E48E4241C7D4E3800ECB29B /* trialImg1.png */,
 				3E48E4351C8A0B9100ECB29B /* trialImage2.png */,
 				3E69B3D61C63F50E00D3980C /* tempVC.swift */,
@@ -209,6 +214,7 @@
 		3EA523971C6307E7000C47B8 = {
 			isa = PBXGroup;
 			children = (
+				3EFEB6081C983FDB00AB30A7 /* Restaurants */,
 				3EFA7B041C94362D008976F8 /* Libraries */,
 				3E48E4321C85216700ECB29B /* QRCode */,
 				3E48E42F1C80EFB900ECB29B /* Today */,
@@ -311,6 +317,14 @@
 				3EFA7B131C9436FD008976F8 /* CMP_0.0-Bridging-Header.h */,
 			);
 			name = parseConnection;
+			sourceTree = "<group>";
+		};
+		3EFEB6081C983FDB00AB30A7 /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				3EFEB6091C98405500AB30A7 /* restaurantTableViewCell.swift */,
+			);
+			name = Restaurants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +435,7 @@
 				3EA523AB1C6307E7000C47B8 /* Assets.xcassets in Resources */,
 				3E48E4251C7D4E3800ECB29B /* trialImg1.png in Resources */,
 				3EA523A91C6307E7000C47B8 /* Main.storyboard in Resources */,
+				3EFEB60C1C98465500AB30A7 /* restaurantTempImage1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +464,7 @@
 				3E69B3D71C63F50E00D3980C /* tempVC.swift in Sources */,
 				3E48E4311C80EFCF00ECB29B /* TodayVC.swift in Sources */,
 				3E48E42E1C7E55E400ECB29B /* ProfileVC.swift in Sources */,
+				3EFEB60A1C98405500AB30A7 /* restaurantTableViewCell.swift in Sources */,
 				3EFA7B151C9436FE008976F8 /* ParseConnection.m in Sources */,
 				3E48E4231C7D49D400ECB29B /* LaunchVC.swift in Sources */,
 				3E48E4381C919D2900ECB29B /* SignUp2VC.swift in Sources */,
