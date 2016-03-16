@@ -812,6 +812,9 @@
                     <navigationItem key="navigationItem" id="PKS-u6-VKP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="fnameTextField" destination="fzB-cz-QFJ" id="6kG-vN-uwN"/>
+                        <outlet property="lnameTextField" destination="X8j-7l-oic" id="dZQ-xt-aD6"/>
+                        <outlet property="phoneNumberTextField" destination="c7a-wv-djx" id="so8-Ip-kj8"/>
                         <segue destination="66T-Ns-Vn7" kind="show" identifier="signup1ToSignup2" id="4Dw-Yn-3If"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,10 @@ import UIKit
 
 class SignUp2VC: UIViewController {
     
+    var fname: String?
+    var lname: String?
+    var phoneNumber: String?
+    
     
     @IBOutlet weak var emailTextField: UITextField!
     

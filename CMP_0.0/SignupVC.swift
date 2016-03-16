@@ -10,6 +10,12 @@ import UIKit
 
 class SignupVC: UIViewController {
 
+    @IBOutlet weak var fnameTextField: UITextField!
+    
+    @IBOutlet weak var lnameTextField: UITextField!
+    
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,10 +42,76 @@ class SignupVC: UIViewController {
     
     @IBAction func continueButtonPressed(sender: UIButton) {
 
+        checkAllEntries()
+        
+    }
+    
+    
+    
+    func isValidEntry(testStr:String, regEx:String) -> Bool {
+        
+        let stringTest = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return stringTest.evaluateWithObject(testStr)
+    }
+    
+    
+    func checkFname() -> Bool{
+       return isValidEntry(fnameTextField.text!, regEx: "^[a-zA-Z]+$")
+    }
+    
+    func checkLname() -> Bool{
+        return isValidEntry(lnameTextField.text!, regEx: "^[a-zA-Z]+$")
+    }
+    
+    func checkPhoneNumber()->Bool{
+        return isValidEntry(phoneNumberTextField.text!, regEx: "^[0-9]{10}$")
+    }
+    
+    func checkAllEntries(){
+    
+        if(checkFname()){
+            if(checkLname()){
+                if(checkPhoneNumber()){
+                   // print("Everything Looks Good")
+                    
+                    
+                    movingOntoNextPage()
+                    
+                    
+                }
+                else{showAlert("Phone Number")}
+            }
+            else{showAlert("Last Name")}
+        }
+        else{showAlert("First Name") }
+    }
+    
+    
+    
+    
+    func showAlert(textFieldName: String){
+        
+        let alertController = UIAlertController(title: "Invalid Entry!", message:
+            textFieldName.stringByAppendingString(" has invalid entry."), preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func movingOntoNextPage(){
         changeBackButtonTitle()
         performSegueWithIdentifier("signup1ToSignup2", sender: self)
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+       
+        let destinationVC = segue.destinationViewController as! SignUp2VC
+        destinationVC.fname = fnameTextField.text
+        destinationVC.lname = lnameTextField.text
+        destinationVC.phoneNumber = phoneNumberTextField.text
     
+    }
 
     /*
     // MARK: - Navigation
@@ -50,5 +122,6 @@ class SignupVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }
