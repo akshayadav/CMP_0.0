@@ -27,22 +27,23 @@ class LoginVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     override func viewWillAppear(animated: Bool) {
-        navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = true
         super.viewDidAppear(animated)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-//    
-//    override func viewWillDisappear(animated: Bool) {
-//        navigationController?.navigationBarHidden = true
-//        super.viewWillDisappear(true)
-//        
-//        
-//    }
    
+    
+    func changeBackButtonTitle(){
+        self.navigationItem.title = ""
+    }
+    
+    @IBAction func signUpButtonPressed(sender: UIButton) {
+        
+        changeBackButtonTitle()
+        performSegueWithIdentifier("loginToSignup", sender: self)
+    }
     
     
     

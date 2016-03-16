@@ -21,14 +21,23 @@ class SignupVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
+   
+    
     override func viewWillAppear(animated: Bool) {
-        navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBarHidden = false
+        self.navigationItem.title = "create account"
         super.viewDidAppear(animated)
+    }
+    
+    func changeBackButtonTitle(){
+        self.navigationItem.title = ""
+    }
+    
+    
+    @IBAction func continueButtonPressed(sender: UIButton) {
+
+        changeBackButtonTitle()
+        performSegueWithIdentifier("signup1ToSignup2", sender: self)
     }
     
 

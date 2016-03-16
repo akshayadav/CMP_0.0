@@ -6,10 +6,20 @@
 //  Copyright © 2016 Akshay's. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import Social
+import Parse
+
+
+
+
 
 class TodayVC: UIViewController {
 
+    @IBOutlet weak var todayRestaurantsTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

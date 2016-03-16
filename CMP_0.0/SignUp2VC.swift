@@ -9,6 +9,10 @@
 import UIKit
 
 class SignUp2VC: UIViewController {
+    
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,31 @@ class SignUp2VC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+  
+    func isValidEmail(testStr:String) -> Bool {
+        // println("validate calendar: \(testStr)")
+        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
+    }
+
+    
+    
+    @IBAction func signupButtonPressed(sender: UIButton) {
+   
+        if(isValidEmail( emailTextField.text!)){
+            print("looks good")
+        }
+        else{
+            print("doesn't look good")
+        }
+    
+    
+    }
+    
     
 
     /*
