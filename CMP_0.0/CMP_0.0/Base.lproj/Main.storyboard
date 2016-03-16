@@ -289,7 +289,7 @@
         <!--Today-->
         <scene sceneID="89M-9a-UlK">
             <objects>
-                <viewController id="qt2-Qt-gSd" customClass="TodayVC" customModule="CMP_0_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="today" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qt2-Qt-gSd" customClass="TodayVC" customModule="CMP_0_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Blm-H4-Gve"/>
                         <viewControllerLayoutGuide type="bottom" id="Q5W-PI-Azp"/>
@@ -664,8 +664,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="XTr-nj-dbV" id="MUz-jI-jqZ"/>
                         <outlet property="emailTextField" destination="waZ-b7-AYL" id="6kp-JH-RgQ"/>
-                        <segue destination="hCP-hr-fxT" kind="show" identifier="signupToTabBar" id="axP-PP-dC6"/>
+                        <outlet property="passwordTextField" destination="erF-FP-r4t" id="Rb2-M6-jnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCV-be-L7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -847,7 +848,7 @@
         <!--Navigation Controller-->
         <scene sceneID="AZR-VE-Cm5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hCP-hr-fxT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="firstNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hCP-hr-fxT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ERC-H2-c1j">
@@ -882,7 +883,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6N-UH-NCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1633" y="-1875"/>
+            <point key="canvasLocation" x="1502" y="-1865"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="mMr-yM-SiX">

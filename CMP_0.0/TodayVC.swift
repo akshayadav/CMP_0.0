@@ -22,6 +22,7 @@ class TodayVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        definesPresentationContext = true
 
         // Do any additional setup after loading the view.
     }
