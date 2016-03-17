@@ -45,7 +45,7 @@ class SignUp2VC: UIViewController {
         return emailTest.evaluateWithObject(testStr)
     }
     
-    func matchPasswordAdnConfirmPassword()->Bool{
+    func matchPasswordAndConfirmPassword()->Bool{
         if(passwordTextField.text == confirmPasswordTextField.text){
             return true;
         }
@@ -65,7 +65,7 @@ class SignUp2VC: UIViewController {
     @IBAction func signupButtonPressed(sender: UIButton) {
    
         if(isValidEmail(emailTextField.text!)){
-            if(matchPasswordAdnConfirmPassword()){
+            if(matchPasswordAndConfirmPassword()){
                 signUp()
             }
         }
@@ -104,7 +104,7 @@ class SignUp2VC: UIViewController {
     spinner.stopAnimating()
     if ((error) != nil) {
     
-        let alertController = UIAlertController(title: "Error", message:"\(error)", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Error", message:"\(error?.localizedDescription)", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)

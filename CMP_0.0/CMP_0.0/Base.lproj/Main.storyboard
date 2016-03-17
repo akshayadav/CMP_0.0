@@ -105,6 +105,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="loginButtonAction:" destination="g1x-Zq-5FS" eventType="touchUpInside" id="hH6-Zc-3sa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbY-IN-d0X">
                                                 <rect key="frame" x="0.0" y="213" width="89" height="19"/>
@@ -204,6 +207,8 @@
                     <navigationItem key="navigationItem" title="Login" id="og2-Xl-lgg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="emailTextField" destination="6ki-4p-eIG" id="ohW-zG-T8S"/>
+                        <outlet property="passwordTextField" destination="9VI-7f-Rlc" id="s1H-MP-cnY"/>
                         <segue destination="fAB-KG-MCw" kind="show" identifier="loginToSignup" id="uHY-aD-X12"/>
                     </connections>
                 </viewController>
