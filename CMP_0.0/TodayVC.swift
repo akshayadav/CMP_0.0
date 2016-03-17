@@ -103,6 +103,10 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 for post in posts!{
                     
+                    
+                    if(post[self.todaysDay()]as! Bool){
+                    
+                    
                     var restaurantImage:UIImage!
                     
                     post["restaurantImage"].getDataInBackgroundWithBlock{
@@ -125,7 +129,11 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         self.todayRestaurantsTableView.reloadData()
                     
                     }
-                    
+                }
+                    else{
+                        //'post' which does not serve today.
+                    }
+                
                 }
                 
             }
@@ -146,6 +154,19 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidAppear(animated: Bool) {
         
+    }
+    
+    func todaysDay() -> String{
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let dayOfWeekString = dateFormatter.stringFromDate(NSDate())
+        return dayOfWeekString
+//        
+//        let today = NSDate()
+//        let myCalendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)
+//        let todaysDay = myCalendar!.component(NSCalendarUnit.Weekday , fromDate: today)
+//        print(todaysDay)
     }
     
 
