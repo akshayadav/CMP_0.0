@@ -44,6 +44,8 @@
 		3EFEB60A1C98405500AB30A7 /* restaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB6091C98405500AB30A7 /* restaurantTableViewCell.swift */; };
 		3EFEB60C1C98465500AB30A7 /* restaurantTempImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEB60B1C98465500AB30A7 /* restaurantTempImage1.png */; };
 		3EFEB60E1C98661100AB30A7 /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB60D1C98661100AB30A7 /* RestaurantsVC.swift */; };
+		3EFEB6101C9AF0B000AB30A7 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB60F1C9AF0B000AB30A7 /* Restaurant.swift */; };
+		3EFEB6121C9B021300AB30A7 /* imageUnavailableTemp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEB6111C9B021300AB30A7 /* imageUnavailableTemp.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		3EFEB6091C98405500AB30A7 /* restaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = restaurantTableViewCell.swift; sourceTree = "<group>"; };
 		3EFEB60B1C98465500AB30A7 /* restaurantTempImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurantTempImage1.png; sourceTree = "<group>"; };
 		3EFEB60D1C98661100AB30A7 /* RestaurantsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
+		3EFEB60F1C9AF0B000AB30A7 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		3EFEB6111C9B021300AB30A7 /* imageUnavailableTemp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageUnavailableTemp.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,7 @@
 		3E69B3D51C63F46200D3980C /* TempFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3EFEB6111C9B021300AB30A7 /* imageUnavailableTemp.png */,
 				3EFEB60B1C98465500AB30A7 /* restaurantTempImage1.png */,
 				3E48E4241C7D4E3800ECB29B /* trialImg1.png */,
 				3E48E4351C8A0B9100ECB29B /* trialImage2.png */,
@@ -326,6 +331,7 @@
 			children = (
 				3EFEB6091C98405500AB30A7 /* restaurantTableViewCell.swift */,
 				3EFEB60D1C98661100AB30A7 /* RestaurantsVC.swift */,
+				3EFEB60F1C9AF0B000AB30A7 /* Restaurant.swift */,
 			);
 			name = Restaurants;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EFEB6121C9B021300AB30A7 /* imageUnavailableTemp.png in Resources */,
 				3E48E4361C8A0B9100ECB29B /* trialImage2.png in Resources */,
 				3EA523AB1C6307E7000C47B8 /* Assets.xcassets in Resources */,
 				3E48E4251C7D4E3800ECB29B /* trialImg1.png in Resources */,
@@ -473,6 +480,7 @@
 				3E48E4231C7D49D400ECB29B /* LaunchVC.swift in Sources */,
 				3E48E4381C919D2900ECB29B /* SignUp2VC.swift in Sources */,
 				3E48E4341C85217E00ECB29B /* QRCodeVC.swift in Sources */,
+				3EFEB6101C9AF0B000AB30A7 /* Restaurant.swift in Sources */,
 				3EA523A61C6307E7000C47B8 /* ViewController.swift in Sources */,
 				3EA523A41C6307E7000C47B8 /* AppDelegate.swift in Sources */,
 				3E48E4291C7D8E2600ECB29B /* LoginVC.swift in Sources */,

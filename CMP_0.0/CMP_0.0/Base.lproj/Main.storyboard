@@ -303,23 +303,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z0-DQ-ajR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Xu-T6-RsP">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Xu-T6-RsP">
                                         <rect key="frame" x="0.0" y="65" width="320" height="366"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="restaurantTableViewCell" rowHeight="90" id="8CY-xD-JCR" customClass="restaurantTableViewCell" customModule="CMP_0_0" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="92" width="320" height="90"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="restaurantTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="restaurantTableViewCell" rowHeight="120" id="8CY-xD-JCR" customClass="restaurantTableViewCell" customModule="CMP_0_0" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="92" width="320" height="120"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8CY-xD-JCR" id="p5D-rm-Lor">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="8CY-xD-JCR" id="p5D-rm-Lor">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="restaurantTempImage1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-8l-bt3">
-                                                            <rect key="frame" x="0.0" y="-1" width="90" height="90"/>
+                                                            <rect key="frame" x="8" y="25" width="70" height="70"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG0-tT-reI">
-                                                            <rect key="frame" x="98" y="8" width="214" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                            <rect key="frame" x="100" y="25" width="191" height="16"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
