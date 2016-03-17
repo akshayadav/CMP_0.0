@@ -22,7 +22,10 @@ class TodayVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        definesPresentationContext = true
+        
+        print(PFUser.currentUser()?.username)
+        
+        
 
         // Do any additional setup after loading the view.
     }

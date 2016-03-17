@@ -46,9 +46,6 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <segue destination="lPS-aQ-sjV" kind="show" identifier="launchToLogin" id="nN9-wx-R88"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXg-ty-foX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +54,7 @@
         <!--Login-->
         <scene sceneID="2qB-9K-gxA">
             <objects>
-                <viewController id="g1x-Zq-5FS" customClass="LoginVC" customModule="CMP_0_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g1x-Zq-5FS" customClass="LoginVC" customModule="CMP_0_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y94-u4-viP"/>
                         <viewControllerLayoutGuide type="bottom" id="2Z3-G4-pWS"/>
@@ -374,8 +371,15 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0e-cO-w4A">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kR6-bx-dtZ">
+                                        <rect key="frame" x="136" y="206" width="48" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="logoutButtonAction:" destination="wGj-ad-sW1" eventType="touchUpInside" id="3DJ-2m-rd0"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="omq-Vm-ccN">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="425"/>
+                                        <rect key="frame" x="27" y="94" width="46" height="30"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -541,7 +545,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-nj-dbV">
                                                         <rect key="frame" x="8" y="149" width="288" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Signing up I agree to the college meal " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkU-rd-xyZ">
                                                         <rect key="frame" x="8" y="243" width="185" height="15"/>
@@ -826,7 +830,7 @@
         <!--Navigation Controller-->
         <scene sceneID="a3o-Dg-t52">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="lPS-aQ-sjV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginSignupNavController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lPS-aQ-sjV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aqa-df-vn0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -843,7 +847,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oah-vS-ffc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-989" y="-1380"/>
+            <point key="canvasLocation" x="-1047" y="-1036"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AZR-VE-Cm5">

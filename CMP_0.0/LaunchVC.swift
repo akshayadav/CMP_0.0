@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LaunchVC: UIViewController {
 
@@ -15,11 +16,9 @@ class LaunchVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        let object = PFObject(className: "Dish")
-        object.setObject("how", forKey: "dishName")
-        object.saveInBackground()
         
-       _ =  NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: Selector("gotoLogin"), userInfo: nil, repeats: false)
+       _ =  NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: Selector("gotoAppropriateScreen"), userInfo: nil, repeats: false)
+        
         
         
         
@@ -31,10 +30,22 @@ class LaunchVC: UIViewController {
     }
     
     
-    func gotoLogin(){
+    func gotoAppropriateScreen(){
+        
+        let viewController:UIViewController
     
-        performSegueWithIdentifier("launchToLogin", sender: self)
-    
+        if PFUser.currentUser() == nil{
+            
+           viewController  = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("loginSignupNavController")
+
+        
+        }
+        else{
+            viewController  = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("firstNavController")
+
+        }
+        self.presentViewController(viewController, animated: true, completion: nil)
+
     }
     
 

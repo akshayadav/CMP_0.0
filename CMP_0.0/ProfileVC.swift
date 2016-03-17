@@ -7,9 +7,19 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileVC: UIViewController {
 
+    @IBAction func logoutButtonAction(sender: UIButton) {
+        
+        PFUser.logOut()
+        let viewController:UIViewController  = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("loginSignupNavController")
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

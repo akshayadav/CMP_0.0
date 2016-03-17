@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         navigationController!.navigationBar.backgroundColor = UIColor.clearColor()
         

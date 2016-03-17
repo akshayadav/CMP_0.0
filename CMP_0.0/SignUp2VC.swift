@@ -44,12 +44,33 @@ class SignUp2VC: UIViewController {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluateWithObject(testStr)
     }
+    
+    func matchPasswordAdnConfirmPassword()->Bool{
+        if(passwordTextField.text == confirmPasswordTextField.text){
+            return true;
+        }
+        else{
+            
+            let alertController = UIAlertController(title: "Password not confirmed", message:"Password does not match confirmation.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            return false
+        }
+    }
 
     
     
     @IBAction func signupButtonPressed(sender: UIButton) {
    
-        signUp()
+        if(isValidEmail(emailTextField.text!)){
+            if(matchPasswordAdnConfirmPassword()){
+                signUp()
+            }
+        }
+        
+    
     
     }
     
@@ -88,9 +109,6 @@ class SignUp2VC: UIViewController {
         
         self.presentViewController(alertController, animated: true, completion: nil)
         
-        
-        
-    
     } else {
         
         
@@ -105,7 +123,6 @@ class SignUp2VC: UIViewController {
             
         }
         
-        
             alertController.addAction(signupSuccessAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -118,21 +135,11 @@ class SignUp2VC: UIViewController {
 
         
         
-        
-        
-        
 //        dispatch_async(dispatch_get_main_queue(), { () -> Void in
 //            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("firstNavController")
 //            self.presentViewController(viewController, animated: true, completion: nil)
 //        })
-//        
-        
-        
-        
-        
-        
-        
-
+//
         
             }
         })
