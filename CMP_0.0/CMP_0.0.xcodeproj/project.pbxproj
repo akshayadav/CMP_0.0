@@ -46,6 +46,7 @@
 		3EFEB60E1C98661100AB30A7 /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB60D1C98661100AB30A7 /* RestaurantsVC.swift */; };
 		3EFEB6101C9AF0B000AB30A7 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB60F1C9AF0B000AB30A7 /* Restaurant.swift */; };
 		3EFEB6121C9B021300AB30A7 /* imageUnavailableTemp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEB6111C9B021300AB30A7 /* imageUnavailableTemp.png */; };
+		3EFEB6141C9B239300AB30A7 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB6131C9B239300AB30A7 /* RestaurantDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		3EFEB60D1C98661100AB30A7 /* RestaurantsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
 		3EFEB60F1C9AF0B000AB30A7 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		3EFEB6111C9B021300AB30A7 /* imageUnavailableTemp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageUnavailableTemp.png; sourceTree = "<group>"; };
+		3EFEB6131C9B239300AB30A7 /* RestaurantDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +334,7 @@
 				3EFEB6091C98405500AB30A7 /* restaurantTableViewCell.swift */,
 				3EFEB60D1C98661100AB30A7 /* RestaurantsVC.swift */,
 				3EFEB60F1C9AF0B000AB30A7 /* Restaurant.swift */,
+				3EFEB6131C9B239300AB30A7 /* RestaurantDetail.swift */,
 			);
 			name = Restaurants;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				3E48E42B1C7DB19000ECB29B /* SignupVC.swift in Sources */,
 				3E69B3D71C63F50E00D3980C /* tempVC.swift in Sources */,
 				3EFEB60E1C98661100AB30A7 /* RestaurantsVC.swift in Sources */,
+				3EFEB6141C9B239300AB30A7 /* RestaurantDetail.swift in Sources */,
 				3E48E4311C80EFCF00ECB29B /* TodayVC.swift in Sources */,
 				3E48E42E1C7E55E400ECB29B /* ProfileVC.swift in Sources */,
 				3EFEB60A1C98405500AB30A7 /* restaurantTableViewCell.swift in Sources */,

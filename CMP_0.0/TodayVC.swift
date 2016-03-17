@@ -73,11 +73,11 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         downloadRestaurantsFromParse()
         
 //        print(PFUser.currentUser())
-//        if((PFUser.currentUser()?.objectForKey("isProUser"))! as! NSObject == 1){
-//            print("reaching here")
-//            QRItem.enabled = true
-//            
-//        }
+        if((PFUser.currentUser()?.objectForKey("isProUser"))! as! NSObject == 1){
+            print("reaching here")
+            QRItem.enabled = true
+            
+        }
         // this code is here because QRCodeVC cannot reach it
         
         
