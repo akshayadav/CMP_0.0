@@ -15,8 +15,33 @@ import Parse
 
 
 
-class TodayVC: UIViewController {
+class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
+    
+    
+    
+    
+    
 
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+
+    
+    
+    
+    
     @IBOutlet weak var todayRestaurantsTableView: UITableView!
     
     
@@ -28,12 +53,12 @@ class TodayVC: UIViewController {
         let QRItem = tabBarItems![1]
         
         
-        print(PFUser.currentUser())
-        if((PFUser.currentUser()?.objectForKey("isProUser"))! as! NSObject == 1){
-            print("reaching here")
-            QRItem.enabled = true
-            
-        }
+//        print(PFUser.currentUser())
+//        if((PFUser.currentUser()?.objectForKey("isProUser"))! as! NSObject == 1){
+//            print("reaching here")
+//            QRItem.enabled = true
+//            
+//        }
         // this code is here because QRCodeVC cannot reach it
         
         

@@ -105,7 +105,7 @@ class SignUp2VC: UIViewController {
     spinner.stopAnimating()
     if ((error) != nil) {
     
-        let alertController = UIAlertController(title: "Error", message:"\(error?.localizedDescription)", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Error", message:"\(error!.localizedDescription)", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
