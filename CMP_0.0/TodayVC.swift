@@ -23,12 +23,32 @@ class TodayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(PFUser.currentUser()?.username)
         
+        let tabBarItems = self.tabBarController?.tabBar.items
+        let QRItem = tabBarItems![1]
+        
+        
+        print(PFUser.currentUser())
+        if((PFUser.currentUser()?.objectForKey("isProUser"))! as! NSObject == 1){
+            print("reaching here")
+            QRItem.enabled = true
+            
+        }
+        // this code is here because QRCodeVC cannot reach it
+        
+        
+        
+        //-----------------------------------------------------
         
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -506,7 +506,7 @@
                             <constraint firstItem="VYg-3a-XFC" firstAttribute="top" secondItem="xfN-Cx-Il7" secondAttribute="top" id="mvP-iP-hT4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="QR" image="QRIcon" id="9LP-5Z-bh3"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="QR" image="QRIcon" id="9LP-5Z-bh3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="QRCodeImageView" destination="yYx-1M-4FT" id="ht1-hK-h7y"/>

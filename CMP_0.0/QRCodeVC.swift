@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class QRCodeVC: UIViewController {
 
@@ -16,7 +17,14 @@ class QRCodeVC: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        
+        
+        
+        
+        
         super.viewDidLoad()
+        
         
         generateQRCode()
 
