@@ -12,12 +12,14 @@ class Restaurant{
     
     var restaurantName:String
     var restaurantImage: UIImage
+    var restaurantID: String
 
     
     
-    init(restaurantName:String, restaurantImage: UIImage){
+    init(restaurantName:String, restaurantImage: UIImage, restaurantID:String){
         self.restaurantName = restaurantName
         self.restaurantImage = restaurantImage
+        self.restaurantID = restaurantID
         
     }
     

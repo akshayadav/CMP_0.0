@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import Parse
+
 
 class RestaurantDetail: UIViewController {
+    
+    var selectedRestaurantsID:String?
+    
+    @IBOutlet weak var restaurantName: UILabel!
+    @IBOutlet weak var restaurantAddress: UILabel!
+    @IBOutlet weak var restaurantPhone: UILabel!
+    @IBOutlet weak var restaurantImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        getRestaurant()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +42,45 @@ class RestaurantDetail: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getRestaurant(){
+    
+        let query = PFQuery(className: "Restaurant")
+        query.getObjectInBackgroundWithId(selectedRestaurantsID!){
+            
+            (post:PFObject?, error:NSError?)-> Void in
+            if error == nil && post != nil {
+                
+                
+                
+                
+                
+                post!["restaurantImage"].getDataInBackgroundWithBlock{
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    
+                    if(error == nil){
+                        self.restaurantImage.image = UIImage(data: imageData!)!
+                        
+                        
+                    }
+                    else{
+                        self.restaurantImage.image = UIImage(named: "imageUnavailableTemp.png")
+                        print(error!.localizedDescription)
+                    }
+                }
+                
+                self.restaurantName.text = post!["restaurantName"]as? String
+                
+                
+                
+            }
+            else{
+                print(error!.localizedDescription)
+            }
+        
+        }
+        
+    
+    }
 
 }

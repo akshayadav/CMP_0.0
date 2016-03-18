@@ -19,12 +19,9 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var listOfRestaurantsForToday:[Restaurant] = [Restaurant]()
+    var restaurantIDSelectedByClickingCell: String?
     
     
-    
-    
-    
-
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("this is count: ")
@@ -47,16 +44,23 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
         
         
-        
-        
-       
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+       restaurantIDSelectedByClickingCell = listOfRestaurantsForToday[indexPath.row].restaurantID
+        
+       performSegueWithIdentifier("restaurantToRestaurantDetail", sender: self)
+        
     }
 
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        
+        let destinationVC = segue.destinationViewController as! RestaurantDetail
+            destinationVC.selectedRestaurantsID = restaurantIDSelectedByClickingCell
+        
+    }
     
     
     
@@ -122,7 +126,7 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             print(error!.localizedDescription)
                         }
                         
-                        let restaurant = Restaurant(restaurantName: post["restaurantName"] as! String, restaurantImage: restaurantImage as UIImage)
+                        let restaurant = Restaurant(restaurantName: post["restaurantName"] as! String, restaurantImage: restaurantImage as UIImage, restaurantID: post.objectId as String!)
                         
                         self.listOfRestaurantsForToday.append(restaurant)
                         
