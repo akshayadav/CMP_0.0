@@ -9,7 +9,47 @@
 import UIKit
 import Parse
 
-class ProfileVC: UIViewController {
+class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet weak var account: UITableView!
+    
+    
+    
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 2
+    }
+    
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if(section == 0){
+            return "account"
+        }
+            
+        else{
+            return "other stuff"
+        }
+    }
+    
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("accountCell", forIndexPath: indexPath)
+        cell.textLabel?.text = "hello"
+        
+        return cell
+        
+        
+    }
+    
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    
+    
 
     @IBAction func logoutButtonAction(sender: UIButton) {
         
@@ -22,6 +62,8 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        account.reloadData()
 
         // Do any additional setup after loading the view.
     }
