@@ -17,52 +17,13 @@ import Parse
 
 class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var todayAndAllSegmentedControl: UISegmentedControl!
     
     var listOfRestaurantsForToday:[Restaurant] = [Restaurant]()
+    
+    var listOfOtherRestaurants:[Restaurant] = [Restaurant]()
+    
     var restaurantIDSelectedByClickingCell: String?
-    
-    
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("this is count: ")
-        print(listOfRestaurantsForToday.count)
-        return self.listOfRestaurantsForToday.count
-        
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "restaurantTableViewCell"
-        
-        let restaurant = listOfRestaurantsForToday[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! restaurantTableViewCell
-        
-        cell.restaurantName.text = restaurant.restaurantName
-        cell.restaurantImage.image = restaurant.restaurantImage
-        
-        
-        return cell
-        
-        
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-       restaurantIDSelectedByClickingCell = listOfRestaurantsForToday[indexPath.row].restaurantID
-        
-       performSegueWithIdentifier("restaurantToRestaurantDetail", sender: self)
-        
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
-        
-        let destinationVC = segue.destinationViewController as! RestaurantDetail
-            destinationVC.selectedRestaurantsID = restaurantIDSelectedByClickingCell
-        
-    }
-    
-    
     
     @IBOutlet weak var todayRestaurantsTableView: UITableView!
     
@@ -93,6 +54,72 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
          todayRestaurantsTableView.delegate = self
          todayRestaurantsTableView.dataSource = self
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("this is count: ")
+        print(listOfRestaurantsForToday.count)
+        
+        if(todayAndAllSegmentedControl.selectedSegmentIndex == 0){
+            return self.listOfRestaurantsForToday.count
+        }
+        else{
+            
+            return self.listOfRestaurantsForToday.count + self.listOfOtherRestaurants.count
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "restaurantTableViewCell"
+        let restaurant:Restaurant!
+        if(todayAndAllSegmentedControl.selectedSegmentIndex==0){
+            restaurant = listOfRestaurantsForToday[indexPath.row]
+            
+            
+        }
+        else{
+            let allRestaurants = listOfRestaurantsForToday + listOfOtherRestaurants
+            
+            restaurant = allRestaurants[indexPath.row]
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! restaurantTableViewCell
+        
+        cell.restaurantName.text = restaurant.restaurantName
+        cell.restaurantImage.image = restaurant.restaurantImage
+        
+        
+        return cell
+        
+        
+        
+        
+        
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if(todayAndAllSegmentedControl.selectedSegmentIndex == 0){
+            
+            restaurantIDSelectedByClickingCell = listOfRestaurantsForToday[indexPath.row].restaurantID
+        }
+        else{
+            let allRestaurants = listOfRestaurantsForToday + listOfOtherRestaurants
+            restaurantIDSelectedByClickingCell = allRestaurants[indexPath.row].restaurantID
+        }
+        
+        performSegueWithIdentifier("restaurantToRestaurantDetail", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        
+        let destinationVC = segue.destinationViewController as! RestaurantDetail
+        destinationVC.selectedRestaurantsID = restaurantIDSelectedByClickingCell
+        
     }
     
     
@@ -136,6 +163,33 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
                     else{
                         //'post' which does not serve today.
+                        
+                        
+                        
+                        var restaurantImage:UIImage!
+                        
+                        post["restaurantImage"].getDataInBackgroundWithBlock{
+                            (imageData: NSData?, error: NSError?) -> Void in
+                            
+                            if(error == nil){
+                                restaurantImage = UIImage(data: imageData!)!
+                                
+                                
+                            }
+                            else{
+                                restaurantImage = UIImage(named: "imageUnavailableTemp.png")
+                                print(error!.localizedDescription)
+                            }
+                            
+                            let restaurant = Restaurant(restaurantName: post["restaurantName"] as! String, restaurantImage: restaurantImage as UIImage, restaurantID: post.objectId as String!)
+                            
+                            self.listOfOtherRestaurants.append(restaurant)
+                            
+                            self.todayRestaurantsTableView.reloadData()
+                            
+                        }
+                        
+                        
                     }
                 
                 }
@@ -172,6 +226,15 @@ class TodayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //        let todaysDay = myCalendar!.component(NSCalendarUnit.Weekday , fromDate: today)
 //        print(todaysDay)
     }
+    
+    
+    @IBAction func todayAndAllSegmentedControlAction(sender: UISegmentedControl) {
+        
+        
+        self.todayRestaurantsTableView.reloadData()
+        
+    }
+    
     
 
     override func didReceiveMemoryWarning() {

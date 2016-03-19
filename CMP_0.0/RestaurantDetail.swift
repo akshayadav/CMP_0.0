@@ -134,7 +134,7 @@ class RestaurantDetail: UIViewController,UITableViewDataSource, UITableViewDeleg
                     
                     if(post["restaurantID"]as! String! == self.selectedRestaurantsID!){
                     
-                        print(post["dishName"])
+                      //  print(post["dishName"])
                         
                         
                         var DishImage:UIImage!
@@ -152,7 +152,14 @@ class RestaurantDetail: UIViewController,UITableViewDataSource, UITableViewDeleg
                                 print(error!.localizedDescription)
                             }
                             
-                            let dish = Dish(DishName: post["dishName"] as! String, DishImage: DishImage as UIImage, DishIngredients: "later" )
+                            var ingredients:String! = ""
+                            let ingredientsArray:[String] = post["ingredients"] as! [String]
+                            
+                            for ingredient in ingredientsArray{
+                                ingredients = ingredients + ingredient + ", "
+                            }
+                            
+                            let dish = Dish(DishName: post["dishName"] as! String, DishImage: DishImage as UIImage, DishIngredients: ingredients )
                             
                             self.listOfDishes.append(dish)
                             

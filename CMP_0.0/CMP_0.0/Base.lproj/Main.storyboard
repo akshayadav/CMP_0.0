@@ -288,7 +288,7 @@
             </objects>
             <point key="canvasLocation" x="1198" y="-70"/>
         </scene>
-        <!--Today-->
+        <!--Restaurants-->
         <scene sceneID="89M-9a-UlK">
             <objects>
                 <viewController storyboardIdentifier="today" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qt2-Qt-gSd" customClass="TodayVC" customModule="CMP_0_0" customModuleProvider="target" sceneMemberID="viewController">
@@ -304,26 +304,38 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Xu-T6-RsP">
-                                        <rect key="frame" x="0.0" y="65" width="320" height="366"/>
+                                        <rect key="frame" x="0.0" y="93" width="320" height="338"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="restaurantTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="restaurantTableViewCell" rowHeight="120" id="8CY-xD-JCR" customClass="restaurantTableViewCell" customModule="CMP_0_0" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="92" width="320" height="120"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="8CY-xD-JCR" id="p5D-rm-Lor">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-8l-bt3">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-8l-bt3">
                                                             <rect key="frame" x="8" y="25" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="jEn-z8-u6N"/>
+                                                            </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG0-tT-reI">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG0-tT-reI">
                                                             <rect key="frame" x="100" y="25" width="191" height="16"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ebo-8l-bt3" firstAttribute="centerY" secondItem="p5D-rm-Lor" secondAttribute="centerY" id="Dx1-DO-SHs"/>
+                                                        <constraint firstItem="ebo-8l-bt3" firstAttribute="top" secondItem="tG0-tT-reI" secondAttribute="top" id="MsC-4M-Kha"/>
+                                                        <constraint firstItem="ebo-8l-bt3" firstAttribute="leading" secondItem="p5D-rm-Lor" secondAttribute="leadingMargin" id="Xex-zj-GDc"/>
+                                                        <constraint firstItem="tG0-tT-reI" firstAttribute="leading" secondItem="ebo-8l-bt3" secondAttribute="trailing" constant="22" id="Y5F-VH-Rbn"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="tG0-tT-reI" secondAttribute="trailing" constant="21" id="b0u-rj-aZ7"/>
+                                                        <constraint firstItem="ebo-8l-bt3" firstAttribute="top" secondItem="p5D-rm-Lor" secondAttribute="topMargin" constant="15" id="hCj-EZ-NNI"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="tG0-tT-reI" secondAttribute="bottom" constant="69" id="kud-v2-kwK"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="restaurantImage" destination="ebo-8l-bt3" id="B4q-ah-RKf"/>
@@ -336,13 +348,26 @@
                                             <outlet property="delegate" destination="qt2-Qt-gSd" id="PM5-uO-xMm"/>
                                         </connections>
                                     </tableView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CSO-Rz-RlV">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                                        <segments>
+                                            <segment title="Today"/>
+                                            <segment title="All"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="todayAndAllSegmentedControlAction:" destination="qt2-Qt-gSd" eventType="valueChanged" id="LkY-jF-Myu"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="3Xu-T6-RsP" firstAttribute="top" secondItem="4Z0-DQ-ajR" secondAttribute="top" constant="65" id="BaV-hA-KTz"/>
-                                    <constraint firstItem="3Xu-T6-RsP" firstAttribute="leading" secondItem="4Z0-DQ-ajR" secondAttribute="leading" id="I2W-VS-8nD"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Xu-T6-RsP" secondAttribute="bottom" constant="49" id="PtN-pl-3nH"/>
-                                    <constraint firstItem="3Xu-T6-RsP" firstAttribute="width" secondItem="4Z0-DQ-ajR" secondAttribute="width" id="pmr-l1-xof"/>
+                                    <constraint firstItem="CSO-Rz-RlV" firstAttribute="leading" secondItem="3Xu-T6-RsP" secondAttribute="leading" id="CUI-Fe-j5M"/>
+                                    <constraint firstItem="CSO-Rz-RlV" firstAttribute="top" secondItem="4Z0-DQ-ajR" secondAttribute="top" constant="64" id="CjJ-Wo-NKE"/>
+                                    <constraint firstItem="3Xu-T6-RsP" firstAttribute="top" secondItem="CSO-Rz-RlV" secondAttribute="bottom" constant="1" id="PGh-sf-6ov"/>
+                                    <constraint firstItem="3Xu-T6-RsP" firstAttribute="leading" secondItem="4Z0-DQ-ajR" secondAttribute="leading" id="TJ9-iC-9Pm"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Xu-T6-RsP" secondAttribute="bottom" constant="49" id="VNI-J5-wZg"/>
+                                    <constraint firstItem="CSO-Rz-RlV" firstAttribute="trailing" secondItem="3Xu-T6-RsP" secondAttribute="trailing" id="pzO-KW-icA"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Xu-T6-RsP" secondAttribute="trailing" id="sc2-ed-9ve"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -354,17 +379,18 @@
                             <constraint firstItem="4Z0-DQ-ajR" firstAttribute="leading" secondItem="3SN-K7-F2q" secondAttribute="leading" id="hCO-yj-leo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Today" image="todayIcon" id="2Y4-6s-Go6"/>
-                    <navigationItem key="navigationItem" title="Today" id="S6j-4h-pWq"/>
+                    <tabBarItem key="tabBarItem" title="Today" image="restaurantsIcon" id="2Y4-6s-Go6"/>
+                    <navigationItem key="navigationItem" title="Restaurants" id="S6j-4h-pWq"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="todayAndAllSegmentedControl" destination="CSO-Rz-RlV" id="hQr-BQ-31C"/>
                         <outlet property="todayRestaurantsTableView" destination="3Xu-T6-RsP" id="L23-W2-I0U"/>
                         <segue destination="gCE-E3-GTf" kind="show" identifier="restaurantToRestaurantDetail" id="xAr-vy-29Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3C-Ly-zn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1880" y="-2569"/>
+            <point key="canvasLocation" x="1859" y="-2589"/>
         </scene>
         <!--Profile-->
         <scene sceneID="f3u-tn-VkT">
@@ -893,7 +919,6 @@
                     <connections>
                         <segue destination="qt2-Qt-gSd" kind="relationship" relationship="viewControllers" id="iTA-zB-lUh"/>
                         <segue destination="Ccm-Am-i3v" kind="relationship" relationship="viewControllers" id="lsQ-OE-Erw"/>
-                        <segue destination="zQd-e5-seE" kind="relationship" relationship="viewControllers" id="cPG-Of-X5v"/>
                         <segue destination="wGj-ad-sW1" kind="relationship" relationship="viewControllers" id="Hje-fn-RTH"/>
                     </connections>
                 </tabBarController>
@@ -913,12 +938,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-Tt-zer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-Tt-zer">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.96985434459999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1hZ-Tt-zer" firstAttribute="height" secondItem="Nzm-F8-ax1" secondAttribute="height" id="Ag6-g9-Zku"/>
+                            <constraint firstItem="1hZ-Tt-zer" firstAttribute="leading" secondItem="Nzm-F8-ax1" secondAttribute="leading" id="EYD-eF-JAV"/>
+                            <constraint firstItem="1hZ-Tt-zer" firstAttribute="top" secondItem="Nzm-F8-ax1" secondAttribute="top" id="H3A-jn-gun"/>
+                            <constraint firstItem="1hZ-Tt-zer" firstAttribute="width" secondItem="Nzm-F8-ax1" secondAttribute="width" id="eHW-Ji-ev2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Restaurants" image="restaurantsIcon" id="orY-zD-pAO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -1095,7 +1126,6 @@
         <image name="QRIcon" width="25" height="25"/>
         <image name="profileIcon" width="25" height="25"/>
         <image name="restaurantsIcon" width="25" height="25"/>
-        <image name="todayIcon" width="25" height="25"/>
         <image name="trialImage2.png" width="128" height="128"/>
         <image name="trialImg1.png" width="800" height="695"/>
     </resources>
