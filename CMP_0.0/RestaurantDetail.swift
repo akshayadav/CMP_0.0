@@ -10,7 +10,44 @@ import UIKit
 import Parse
 
 
-class RestaurantDetail: UIViewController {
+class RestaurantDetail: UIViewController,UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var DishTableView: UITableView!
+    
+    var listOfDishes:[Dish] = [Dish]()
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.listOfDishes.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "DishTableCell"
+        
+        let dish = listOfDishes[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DishTableViewCell
+//
+        cell.dishName.text = dish.DishName
+        cell.dishImage.image = dish.DishImage
+        cell.ingredientsText.text = dish.DishIngredients
+//        cell.restaurantImage.image = restaurant.restaurantImage
+        
+        
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+     
+    }
+
+    
+    
+    
+    
+    
     
     var selectedRestaurantsID:String?
     
@@ -23,6 +60,7 @@ class RestaurantDetail: UIViewController {
         super.viewDidLoad()
         
         getRestaurant()
+        getDishes()
         
         // Do any additional setup after loading the view.
     }
@@ -70,7 +108,8 @@ class RestaurantDetail: UIViewController {
                 }
                 
                 self.restaurantName.text = post!["restaurantName"]as? String
-                
+                self.restaurantAddress.text = post!["address"]as? String
+                self.restaurantPhone.text = post!["phonenumber"]as? String
                 
                 
             }
@@ -82,5 +121,54 @@ class RestaurantDetail: UIViewController {
         
     
     }
+    
+    func getDishes(){
+        let query = PFQuery(className: "Dish")
+        query.findObjectsInBackgroundWithBlock {
+            
+            (posts: [PFObject]?, error:NSError?)-> Void in
+            
+            if(error == nil){
+                
+                for post in posts!{
+                    
+                    if(post["restaurantID"]as! String! == self.selectedRestaurantsID!){
+                    
+                        print(post["dishName"])
+                        
+                        
+                        var DishImage:UIImage!
+                        
+                        post["DishImage"].getDataInBackgroundWithBlock{
+                            (imageData: NSData?, error: NSError?) -> Void in
+                            
+                            if(error == nil){
+                                DishImage = UIImage(data: imageData!)!
+                                
+                                
+                            }
+                            else{
+                                DishImage = UIImage(named: "imageUnavailableTemp.png")
+                                print(error!.localizedDescription)
+                            }
+                            
+                            let dish = Dish(DishName: post["dishName"] as! String, DishImage: DishImage as UIImage, DishIngredients: "later" )
+                            
+                            self.listOfDishes.append(dish)
+                            
+                            self.DishTableView.reloadData()
+                        
+                    }
+                    
+                }
+                
+            }
+            }
+            else{
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
 
 }

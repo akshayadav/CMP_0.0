@@ -1009,19 +1009,51 @@
                                             <constraint firstItem="0uk-xe-eoO" firstAttribute="trailing" secondItem="mVJ-Is-uRL" secondAttribute="trailing" id="rb2-sD-USi"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gNd-nw-rfW">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gNd-nw-rfW">
                                         <rect key="frame" x="0.0" y="247" width="320" height="233"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="VgX-FK-xhL">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="76"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DishTableCell" rowHeight="98" id="VgX-FK-xhL" customClass="DishTableViewCell" customModule="CMP_0_0" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="98"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VgX-FK-xhL" id="oqE-ED-qsR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="97.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yw5-nA-7xn">
+                                                            <rect key="frame" x="8" y="8" width="80" height="80"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zn1-5I-axY">
+                                                            <rect key="frame" x="96" y="19" width="208" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kc-y4-71u">
+                                                            <rect key="frame" x="91" y="50" width="48" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiZ-vC-pdK">
+                                                            <rect key="frame" x="96" y="67" width="216" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="dishImage" destination="yw5-nA-7xn" id="wVP-r5-lXi"/>
+                                                    <outlet property="dishName" destination="zn1-5I-axY" id="iy3-Zr-7hF"/>
+                                                    <outlet property="ingredientsText" destination="TiZ-vC-pdK" id="fz5-Wv-VqS"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="gCE-E3-GTf" id="VW8-tI-eM5"/>
+                                            <outlet property="delegate" destination="gCE-E3-GTf" id="U4y-Zw-zqQ"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1047,6 +1079,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="DishTableView" destination="gNd-nw-rfW" id="jbb-Pp-c7H"/>
                         <outlet property="restaurantAddress" destination="8q0-07-8oY" id="ws6-oI-Grb"/>
                         <outlet property="restaurantImage" destination="0uk-xe-eoO" id="kge-oe-WyQ"/>
                         <outlet property="restaurantName" destination="1zq-sK-aEq" id="ijC-6d-gY0"/>
@@ -1055,7 +1088,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMr-cD-HYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2360" y="-2569"/>
+            <point key="canvasLocation" x="2314" y="-2569"/>
         </scene>
     </scenes>
     <resources>
