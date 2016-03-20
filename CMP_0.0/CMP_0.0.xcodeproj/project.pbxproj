@@ -49,6 +49,8 @@
 		3EFEB6141C9B239300AB30A7 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB6131C9B239300AB30A7 /* RestaurantDetail.swift */; };
 		3EFEB6171C9D360700AB30A7 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB6161C9D360700AB30A7 /* DishTableViewCell.swift */; };
 		3EFEB6191C9D39EF00AB30A7 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB6181C9D39EF00AB30A7 /* Dish.swift */; };
+		3EFEB61B1C9E323400AB30A7 /* AccountDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB61A1C9E323400AB30A7 /* AccountDetailsVC.swift */; };
+		3EFEB61D1C9E43EB00AB30A7 /* AccountDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFEB61C1C9E43EB00AB30A7 /* AccountDetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,8 @@
 		3EFEB6131C9B239300AB30A7 /* RestaurantDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
 		3EFEB6161C9D360700AB30A7 /* DishTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		3EFEB6181C9D39EF00AB30A7 /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		3EFEB61A1C9E323400AB30A7 /* AccountDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsVC.swift; sourceTree = "<group>"; };
+		3EFEB61C1C9E43EB00AB30A7 /* AccountDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +291,8 @@
 		3EFA7AEF1C91C0CA008976F8 /* AccountDetails */ = {
 			isa = PBXGroup;
 			children = (
+				3EFEB61A1C9E323400AB30A7 /* AccountDetailsVC.swift */,
+				3EFEB61C1C9E43EB00AB30A7 /* AccountDetailTableViewCell.swift */,
 			);
 			name = AccountDetails;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E48E42B1C7DB19000ECB29B /* SignupVC.swift in Sources */,
+				3EFEB61B1C9E323400AB30A7 /* AccountDetailsVC.swift in Sources */,
 				3EFEB6191C9D39EF00AB30A7 /* Dish.swift in Sources */,
 				3E69B3D71C63F50E00D3980C /* tempVC.swift in Sources */,
 				3EFEB60E1C98661100AB30A7 /* RestaurantsVC.swift in Sources */,
@@ -495,6 +502,7 @@
 				3E48E4311C80EFCF00ECB29B /* TodayVC.swift in Sources */,
 				3E48E42E1C7E55E400ECB29B /* ProfileVC.swift in Sources */,
 				3EFEB60A1C98405500AB30A7 /* restaurantTableViewCell.swift in Sources */,
+				3EFEB61D1C9E43EB00AB30A7 /* AccountDetailTableViewCell.swift in Sources */,
 				3EFA7B151C9436FE008976F8 /* ParseConnection.m in Sources */,
 				3E48E4231C7D49D400ECB29B /* LaunchVC.swift in Sources */,
 				3E48E4381C919D2900ECB29B /* SignUp2VC.swift in Sources */,

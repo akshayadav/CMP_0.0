@@ -11,6 +11,9 @@ import Parse
 
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var accountItems:[String] = ["Profile Settings","My Restaurants", "Add Meals"]
+    var otherStuff:[String] = ["Help & Support", "Terms of Use and Privacy Policy", "Logout"]
+    
     
     @IBOutlet weak var account: UITableView!
     
@@ -26,32 +29,56 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if(section == 0){
-            return "account"
+            return "Account"
         }
             
         else{
-            return "other stuff"
+            return "Other Stuff"
         }
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("accountCell", forIndexPath: indexPath)
-        cell.textLabel?.text = "hello"
+        
+        if (indexPath.section == 0 ){
+        
+            cell.textLabel?.text = accountItems[indexPath.row]
+        
+        
+        }
+        else{
+            cell.textLabel?.text = otherStuff[indexPath.row]
+            print(indexPath.row)
+        }
         
         return cell
-        
-        
     }
     
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if(section == 0){return accountItems.count}
+        else {return otherStuff.count}
     }
     
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 0){
+            if(indexPath.row == 0 ){
+                performSegueWithIdentifier("profileToAccountDetails", sender: self)
+            }
+        }
+        else{
+            if(indexPath.row == otherStuff.count - 1 ){
+                logoutButtonAction()
+            }
+        
+        }
+    }
+    
     
 
-    @IBAction func logoutButtonAction(sender: UIButton) {
+    func logoutButtonAction() {
         
         PFUser.logOut()
         let viewController:UIViewController  = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("loginSignupNavController")
