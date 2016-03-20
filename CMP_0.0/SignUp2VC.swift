@@ -95,6 +95,7 @@ class SignUp2VC: UIViewController {
     newUser.setObject(self.lname!, forKey: "lname")
     newUser.setObject(self.phoneNumber!, forKey: "phonenumber")
     newUser.setObject(false, forKey: "isProUser")
+    newUser.setObject("0", forKey: "mealsLeft")
         
         
     
