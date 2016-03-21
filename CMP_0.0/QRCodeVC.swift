@@ -61,7 +61,7 @@ class QRCodeVC: UIViewController {
             let filter = CIFilter(name: "CIQRCodeGenerator")
             
             filter!.setValue(data, forKey: "inputMessage")
-            filter!.setValue("Q", forKey: "inputCorrectionLevel")
+            filter!.setValue("L", forKey: "inputCorrectionLevel")
             
             QRCodeImage = filter!.outputImage
             

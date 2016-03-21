@@ -67,6 +67,10 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if(indexPath.row == 0 ){
                 performSegueWithIdentifier("profileToAccountDetails", sender: self)
             }
+            if(indexPath.row == 2){
+                addMeals()
+            }
+            
         }
         else{
             if(indexPath.row == otherStuff.count - 1 ){
@@ -75,6 +79,49 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         }
     }
+    
+    
+    
+    
+    func addMeals(){
+    
+        let currentMeals =   PFUser.currentUser()!.objectForKey("mealsLeft")! as! String
+    
+        let currentMealsInt = Int(currentMeals)
+        
+        let newMeals = String(currentMealsInt! + 5 )
+        
+        if((PFUser.currentUser()?.objectForKey("isProUser"))! as! NSObject == 0){
+            print("reaching here")
+            let tabBarItems = self.tabBarController?.tabBar.items
+            let QRItem = tabBarItems![1]
+            
+            PFUser.currentUser()?.setObject(true, forKey: "isProUser")
+           // PFUser.currentUser()?.saveEventually()
+                
+            
+            QRItem.enabled = true
+            
+        }
+
+        PFUser.currentUser()?.setObject(newMeals, forKey: "mealsLeft")
+        
+        PFUser.currentUser()!.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if(error != nil){print(error!.localizedDescription)}
+            else{
+                
+            }
+        }
+        
+        
+        let alertController = UIAlertController(title: "Meals Added", message:"5 Meals have been added to your account.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
     
     
 

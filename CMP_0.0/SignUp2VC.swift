@@ -42,7 +42,17 @@ class SignUp2VC: UIViewController {
         let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluateWithObject(testStr)
+        if (emailTest.evaluateWithObject(testStr)){
+            return true
+        }
+        else{
+            let alertController = UIAlertController(title: "Invalid Email", message:"Please enter a valid Email address.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            return false
+        }
     }
     
     func matchPasswordAndConfirmPassword()->Bool{
@@ -60,12 +70,24 @@ class SignUp2VC: UIViewController {
         }
     }
 
+    func isPasswordAdded()->Bool{
+        if(passwordTextField.text?.characters.count == 0){
+            let alertController = UIAlertController(title: "Invalid Password", message:"Please enter valid Password.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return false
+        }
+        else{
+            return true
+        }
+    }
     
     
     @IBAction func signupButtonPressed(sender: UIButton) {
    
         if(isValidEmail(emailTextField.text!)){
-            if(matchPasswordAndConfirmPassword()){
+            if(isPasswordAdded() && matchPasswordAndConfirmPassword()){
                 signUp()
             }
         }
