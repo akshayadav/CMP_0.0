@@ -15,20 +15,43 @@ class QRCodeVC: UIViewController {
     
     var QRCodeImage = CIImage!()
     
+   // var QRImageString:String!
+    
     
     override func viewDidLoad() {
         
-        
-        
-        
-        
-        
         super.viewDidLoad()
-        
         
         generateQRCode()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+      
+        
+        generateQRCode()
+        
+//        print(PFUser.currentUser()!)
+        
+//        PFUser.currentUser()?.fetchInBackgroundWithBlock{
+//                        (success: Bool, error: NSError?) -> Void in
+//                        if(error != nil){print(error!.localizedDescription)}
+//                        else{
+//            
+//                        }
+//                    }
+
+        
+//        PFUser.currentUser()!.refreshInBackgroundWithBlock {
+//            (success: PFObject, error: NSError?) -> Void in
+//            if(error != nil){print(error!.localizedDescription)}
+//            else{
+//                
+//            }
+//        }
+        
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,18 +79,37 @@ class QRCodeVC: UIViewController {
         if QRCodeImage == nil {
             
             
-            let data = "AKSHAY YADAV CODE TESTING 123".dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+            let stringToGenerateQR = "" + (PFUser.currentUser()!.valueForKey("fname")! as! String) + (PFUser.currentUser()!.valueForKey("lname")! as! String) + (PFUser.currentUser()!.objectId)! + (PFUser.currentUser()!.valueForKey("phonenumber")! as! String)+"meals:"+(PFUser.currentUser()!.valueForKey("mealsLeft")! as! String)
+            
+          //  QRImageString = stringToGenerateQR
+            
+            
+            let data = stringToGenerateQR.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
             
             let filter = CIFilter(name: "CIQRCodeGenerator")
             
             filter!.setValue(data, forKey: "inputMessage")
-            filter!.setValue("L", forKey: "inputCorrectionLevel")
+            filter!.setValue("H", forKey: "inputCorrectionLevel")
             
-            QRCodeImage = filter!.outputImage
+            QRCodeImage = filter!.outputImage//             .size = CGSize(width: 300, height: 300)
             
-             QRCodeImageView.image = UIImage(CIImage: QRCodeImage)
+            
+          //   QRCodeImageView.image = UIImage(CIImage: QRCodeImage)
+            
+            displayQRCodeImage()
             
         }
+    }
+    
+    func displayQRCodeImage() {
+        let scaleX = QRCodeImageView.frame.size.width / QRCodeImage.extent.size.width
+        let scaleY = QRCodeImageView.frame.size.height / QRCodeImage.extent.size.height
+        
+        let transformedImage = QRCodeImage.imageByApplyingTransform(CGAffineTransformMakeScale(scaleX, scaleY))
+        
+        QRCodeImageView.image = UIImage(CIImage: transformedImage)
+        
+        
     }
 
 }
