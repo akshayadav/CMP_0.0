@@ -30,6 +30,8 @@ class QRCodeVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
       
         
+        
+        
         generateQRCode()
         
 //        print(PFUser.currentUser()!)
@@ -76,8 +78,9 @@ class QRCodeVC: UIViewController {
         
         print("gen QR Code ")
     
-        if QRCodeImage == nil {
+        
             
+            print(PFUser.currentUser()!)
             
             let stringToGenerateQR = "" + (PFUser.currentUser()!.valueForKey("fname")! as! String) + (PFUser.currentUser()!.valueForKey("lname")! as! String) + (PFUser.currentUser()!.objectId)! + (PFUser.currentUser()!.valueForKey("phonenumber")! as! String)+"meals:"+(PFUser.currentUser()!.valueForKey("mealsLeft")! as! String)
             
@@ -98,7 +101,6 @@ class QRCodeVC: UIViewController {
             
             displayQRCodeImage()
             
-        }
     }
     
     func displayQRCodeImage() {

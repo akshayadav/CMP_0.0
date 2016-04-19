@@ -16,6 +16,7 @@
 		3E48E4341C85217E00ECB29B /* QRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48E4331C85217E00ECB29B /* QRCodeVC.swift */; };
 		3E48E4361C8A0B9100ECB29B /* trialImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E48E4351C8A0B9100ECB29B /* trialImage2.png */; };
 		3E48E4381C919D2900ECB29B /* SignUp2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48E4371C919D2900ECB29B /* SignUp2VC.swift */; };
+		3E68C8DA1CC6337300D81875 /* PendingTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E68C8D91CC6337300D81875 /* PendingTransactionVC.swift */; };
 		3E69B3D71C63F50E00D3980C /* tempVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69B3D61C63F50E00D3980C /* tempVC.swift */; };
 		3EA523A41C6307E7000C47B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA523A31C6307E7000C47B8 /* AppDelegate.swift */; };
 		3EA523A61C6307E7000C47B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA523A51C6307E7000C47B8 /* ViewController.swift */; };
@@ -80,6 +81,7 @@
 		3E48E4331C85217E00ECB29B /* QRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeVC.swift; sourceTree = "<group>"; };
 		3E48E4351C8A0B9100ECB29B /* trialImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trialImage2.png; sourceTree = "<group>"; };
 		3E48E4371C919D2900ECB29B /* SignUp2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp2VC.swift; sourceTree = "<group>"; };
+		3E68C8D91CC6337300D81875 /* PendingTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTransactionVC.swift; sourceTree = "<group>"; };
 		3E69B3D61C63F50E00D3980C /* tempVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempVC.swift; sourceTree = "<group>"; };
 		3EA523A01C6307E7000C47B8 /* CMP_0.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMP_0.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA523A31C6307E7000C47B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,14 @@
 			name = QRCode;
 			sourceTree = "<group>";
 		};
+		3E68C8D81CC6334B00D81875 /* pendingTransactions */ = {
+			isa = PBXGroup;
+			children = (
+				3E68C8D91CC6337300D81875 /* PendingTransactionVC.swift */,
+			);
+			name = pendingTransactions;
+			sourceTree = "<group>";
+		};
 		3E69B3D51C63F46200D3980C /* TempFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 		3EA523971C6307E7000C47B8 = {
 			isa = PBXGroup;
 			children = (
+				3E68C8D81CC6334B00D81875 /* pendingTransactions */,
 				3EFEB6151C9D35D900AB30A7 /* Dish */,
 				3EFEB6081C983FDB00AB30A7 /* Restaurants */,
 				3EFA7B041C94362D008976F8 /* Libraries */,
@@ -427,6 +438,7 @@
 				TargetAttributes = {
 					3EA5239F1C6307E7000C47B8 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 742BWTFU9R;
 					};
 					3EA523B31C6307E7000C47B8 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -502,6 +514,7 @@
 				3E48E4311C80EFCF00ECB29B /* TodayVC.swift in Sources */,
 				3E48E42E1C7E55E400ECB29B /* ProfileVC.swift in Sources */,
 				3EFEB60A1C98405500AB30A7 /* restaurantTableViewCell.swift in Sources */,
+				3E68C8DA1CC6337300D81875 /* PendingTransactionVC.swift in Sources */,
 				3EFEB61D1C9E43EB00AB30A7 /* AccountDetailTableViewCell.swift in Sources */,
 				3EFA7B151C9436FE008976F8 /* ParseConnection.m in Sources */,
 				3E48E4231C7D49D400ECB29B /* LaunchVC.swift in Sources */,
@@ -644,6 +657,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library-1.12.0",
@@ -652,6 +667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CMP.CMP-0-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CMP_0.0-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -662,6 +678,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library-1.12.0",
@@ -670,6 +688,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CMP.CMP-0-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CMP_0.0-Bridging-Header.h";
 			};
 			name = Release;
