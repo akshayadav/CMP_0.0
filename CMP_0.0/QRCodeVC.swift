@@ -82,8 +82,12 @@ class QRCodeVC: UIViewController {
             
             print(PFUser.currentUser()!)
             
-            let stringToGenerateQR = "" + (PFUser.currentUser()!.valueForKey("fname")! as! String) + (PFUser.currentUser()!.valueForKey("lname")! as! String) + (PFUser.currentUser()!.objectId)! + (PFUser.currentUser()!.valueForKey("phonenumber")! as! String)+"meals:"+(PFUser.currentUser()!.valueForKey("mealsLeft")! as! String)
-            
+//            let stringToGenerateQR = "" + (PFUser.currentUser()!.valueForKey("fname")! as! String) + (PFUser.currentUser()!.valueForKey("lname")! as! String) + (PFUser.currentUser()!.objectId)! + (PFUser.currentUser()!.valueForKey("phonenumber")! as! String)+"meals:"+(PFUser.currentUser()!.valueForKey("mealsLeft")! as! String)
+        
+        let stringToGenerateQR = //"zPYcci2iQc"//"" + //(PFUser.currentUser()!.valueForKey("fname")! as! String) +
+            //(PFUser.currentUser()!.valueForKey("lname")! as! String) +
+            (PFUser.currentUser()!.objectId)! //+ (PFUser.currentUser()!.valueForKey("phonenumber")! as! String)+"meals:"+(PFUser.currentUser()!.valueForKey("mealsLeft")! as! String)
+        
           //  QRImageString = stringToGenerateQR
             
             
