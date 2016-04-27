@@ -550,7 +550,7 @@
         <!--QR-->
         <scene sceneID="Kzs-rs-SSp">
             <objects>
-                <viewController id="Ccm-Am-i3v" customClass="QRCodeVC" customModule="CMP_0_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRcodeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ccm-Am-i3v" customClass="QRCodeVC" customModule="CMP_0_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vdm-18-lc0"/>
                         <viewControllerLayoutGuide type="bottom" id="n3o-WM-jrz"/>
@@ -1258,7 +1258,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Pending Transactions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc7-RS-So8">
                                                 <rect key="frame" x="0.0" y="8" width="304" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAa-bS-RlD">
@@ -1280,17 +1280,9 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiF-FD-5ZM">
                                                 <rect key="frame" x="8" y="56" width="288" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06D-cB-zRg">
-                                                <rect key="frame" x="94" y="128" width="117" height="54"/>
-                                                <color key="backgroundColor" red="0.65393285407185953" green="0.89914928149999995" blue="0.88448629752879648" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Refresh"/>
-                                                <connections>
-                                                    <action selector="RefreshButtonAction:" destination="hUV-xj-pbM" eventType="touchUpInside" id="AHn-l5-NHu"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -1304,7 +1296,6 @@
                     <connections>
                         <outlet property="ApproveButtonUIButton" destination="HAa-bS-RlD" id="uar-Bu-bsT"/>
                         <outlet property="DeclineButtonUIButton" destination="YPd-bR-GAw" id="Rq6-de-3z7"/>
-                        <outlet property="RefreshUIButton" destination="06D-cB-zRg" id="Lme-Bc-kbQ"/>
                         <outlet property="noPendingTransactionsTextField" destination="hc7-RS-So8" id="4Ef-RF-iCD"/>
                         <outlet property="restaurantNameTextField" destination="XiF-FD-5ZM" id="mwv-6d-G5r"/>
                     </connections>
